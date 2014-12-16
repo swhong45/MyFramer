@@ -21,24 +21,21 @@ widget4 = new Layer x:850, y:420, width:400, height:290, backgroundColor: "#4CAF
 
 widgetGroup = [widget1, widget2, widget3, widget4]
 
-info_total = new Layer
-  x:0, y:30, midX:640, width:1280, height:188, backgroundColor: 'transparent'
-info_total.superLayer = widget1
-info_total.html = "유효 고객 수 Total"
-info_total.style = {
+info = new Layer
+  x:0, y:300, midX:320, width:640, height:188, backgroundColor: 'transparent'
+info.html = 'Ed Chao'
+info.style = {
   'font-family':'Roboto',
-  'font-weight':'800',
+  'font-weight':'400',
   'padding-top':'40px',
-  'color': 'white'
+  'color': '#777'
   'font-size':'40px',
   'text-align':'center'
 }  
 
-
 changeScene = (scene) ->      
   switch scene
     when 1 
-      
       widget2.animate({
       	properties: {width:600}
       })
@@ -71,12 +68,12 @@ changeScene = (scene) ->
       })
 
 
+
 flag = 1
 Utils.interval 2, ->
 	if flag < 4
 		changeScene(flag)
 		flag += 1
-		a = Utils.randomNumber(0,1)
 	else		
 		flag = 1	
 
