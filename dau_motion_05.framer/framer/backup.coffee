@@ -21,17 +21,35 @@ widget4 = new Layer x:850, y:420, width:400, height:290, backgroundColor: "#4CAF
 
 widgetGroup = [widget1, widget2, widget3, widget4]
 
-info = new Layer
-  x:0, y:300, midX:320, width:640, height:188, backgroundColor: 'transparent'
-info.html = 'Ed Chao'
-info.style = {
-  'font-family':'Roboto',
-  'font-weight':'400',
-  'padding-top':'40px',
-  'color': '#777'
-  'font-size':'40px',
-  'text-align':'center'
-}  
+# number1 = new Layer
+#   x:0, y:30, midX:320, width:640, height:188, backgroundColor: 'transparent'
+# number2 = new Layer
+#   x:0, y:50, midX:150, width:300, height:290, backgroundColor: 'transparent'
+# number3 = new Layer
+#   x:0, y:50, midX:150, width:300, height:290, backgroundColor: 'transparent'
+# number4 = new Layer
+#   x:0, y:50, midX:150, width:300, height:290, backgroundColor: 'transparent'
+# 
+# numberGroup = [number1, number2, number3, number4]
+# 
+# for cnt in [0..3]
+# 	 numberGroup[cnt].superLayer = widgetGroup[cnt]
+# 	 numberGroup[cnt].style = {
+# 		'font-family':'Roboto','font-weight':'800', 'padding-top':'40px','color': 'white', 'font-size':'40px','text-align':'center'
+# 		}  
+
+number1 = new Layer
+  midX:widget1.midX, y:200, width:640, height:120, backgroundColor: 'white'
+number2 = new Layer
+  midX: widget2.midX, midY: widget2.midY,  width:100, height:100, backgroundColor: 'white'
+number3 = new Layer
+  midX: widget3.midX, midY: widget3.midY,  width:100, height:100, backgroundColor: 'white'
+number4 = new Layer
+  midX: widget4.midX, midY: widget4.midY,  width:100, height:100, backgroundColor: 'white'
+
+numberGroup = [number1, number2, number3, number4]
+
+
 
 changeScene = (scene) ->      
   switch scene
@@ -68,13 +86,18 @@ changeScene = (scene) ->
       })
 
 
-
-flag = 1
+flag = 0
 Utils.interval 2, ->
+	a = Utils.randomNumber(0, 1)
+	flag += 1
 	if flag < 4
 		changeScene(flag)
-		flag += 1
+		numberGroup[0].html = "123456789"
+		Utils.delay 0.1, ->
+			numberGroup[flag].html = Utils.round(a*100000 + 1000000, 0)
+			numberGroup[flag].animate ({
+				properties: {scale:1.2}
+			})
 	else		
-		flag = 1	
-
+		flag = 0
 
