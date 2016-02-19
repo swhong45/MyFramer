@@ -21,27 +21,27 @@ widget4 = new Layer x:850, y:420, width:400, height:290, backgroundColor: "#4CAF
 
 widgetGroup = [widget1, widget2, widget3, widget4]
 
-number1 = new Layer
-  midX:widget1.midX, y:200, width:640, height:120, backgroundColor: 'white'
-number2 = new Layer
-  x: 30, y: 505,  width:300, height:100, backgroundColor: 'white'
-number3 = new Layer
-  midX: widget3.midX, midY: widget3.midY,  width:100, height:100, backgroundColor: 'white'
-number4 = new Layer
-  midX: widget4.midX, midY: widget4.midY,  width:100, height:100, backgroundColor: 'white'
+# number1 = new Layer
+#   midX:widget1.midX, y:200, width:640, height:120, backgroundColor: 'white'
+# number2 = new Layer
+#   x: 30, y: 505,  width:300, height:100, backgroundColor: 'white'
+# number3 = new Layer
+#   midX: widget3.midX, midY: widget3.midY,  width:100, height:100, backgroundColor: 'white'
+# number4 = new Layer
+#   midX: widget4.midX, midY: widget4.midY,  width:100, height:100, backgroundColor: 'white'
 
 changeScene = (scene) ->      
-  number1.animate({
-      	properties: {rotationX:360}
-      })
+#   number1.animate({
+#       	properties: {rotationX:360}
+#       })
   switch scene
     when 1 
       widget2.animate({
       	properties: {width:600}
       })
-      number2.animate({
-      	properties: {width:600, rotationX:180}
-      })
+#       number2.animate({
+#       	properties: {width:600, rotationX:180}
+#       })
       widget3.animate({
       	properties: {x: 640, width:300}	
       })
@@ -52,9 +52,9 @@ changeScene = (scene) ->
       widget2.animate({
       	properties: {width:300}
       })
-      number2.animate({
-      	properties: {width:300}
-      })
+#       number2.animate({
+#       	properties: {width:300}
+#       })
       widget3.animate({
       	properties: {x: 340, width:600}	
       })
